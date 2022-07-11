@@ -19,14 +19,9 @@ class CancelShipments extends Request
     /**
      * @param CancelShipmentRow[]|CancelShipmentRow $cancelShipmentRow_s
      */
-    public function __construct(
-        protected array|CancelShipmentRow $cancelShipmentRow_s,
-        protected ?string $client_id = null,
-        protected ?string $org_unit_guid = null,
-        protected ?string $org_unit_id = null,
-        protected ?string $env = null,
-    ){
-        parent::__construct($client_id, $org_unit_guid, $org_unit_id, $env);
+    public function __construct(protected array|CancelShipmentRow $cancelShipmentRow_s)
+    {
+        parent::__construct();
     }
 
     /** @throws PlcException */

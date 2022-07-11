@@ -16,14 +16,9 @@ class ImportShipment extends Request
 {
     public string $action = 'ImportShipment';
 
-    public function __construct(
-        protected ShipmentRow $shipmentRow,
-        protected ?string $client_id = null,
-        protected ?string $org_unit_guid = null,
-        protected ?string $org_unit_id = null,
-        protected ?string $env = null,
-    ){
-        parent::__construct($client_id, $org_unit_guid, $org_unit_id, $env);
+    public function __construct(protected ShipmentRow $shipmentRow)
+    {
+        parent::__construct();
     }
 
     public function getBody(): string

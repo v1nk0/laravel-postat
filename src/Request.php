@@ -72,6 +72,24 @@ abstract class Request implements RequestContract
         return $this->returnResponse($response);
     }
 
+    /** Overwrite default Client ID */
+    protected function setClientId(string $clientId)
+    {
+        $this->client_id = $clientId;
+    }
+
+    /** Overwrite default Organisation Unit ID */
+    protected function setOrgUnitId(string $orgUnitId)
+    {
+        $this->org_unit_id = $orgUnitId;
+    }
+
+    /** Overwrite default Organisation Unit GUID */
+    protected function setOrgUnitGuid(string $orgUnitGuid)
+    {
+        $this->org_unit_guid = $orgUnitGuid;
+    }
+
     private function assembleXml(string $body): string
     {
         $xml = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:post="http://post.ondot.at" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:core="http://Core.Model" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">'."\r\n";

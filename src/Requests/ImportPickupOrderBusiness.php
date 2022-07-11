@@ -12,14 +12,9 @@ class ImportPickupOrderBusiness extends Request
 {
     public string $action = 'ImportPickupOrderBusiness';
 
-    public function __construct(
-        protected PickupOrderRow $pickupOrderRow,
-        protected ?string $client_id = null,
-        protected ?string $org_unit_guid = null,
-        protected ?string $org_unit_id = null,
-        protected ?string $env = null,
-    ){
-        parent::__construct($client_id, $org_unit_guid, $org_unit_id, $env);
+    public function __construct(protected PickupOrderRow $pickupOrderRow)
+    {
+        parent::__construct();
     }
 
     public function getBody(): string
