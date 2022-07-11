@@ -7,7 +7,7 @@ enum Encoding: string
     case UTF8 = 'UTF8';
     case WINDOWS1252 = 'WINDOWS1252';
 
-    public function id(): string
+    public function code(): string
     {
         return match($this) {
             Encoding::UTF8 => 'UTF-8',
