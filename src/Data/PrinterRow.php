@@ -19,7 +19,7 @@ class PrinterRow extends Data
 
     public function toXml(): string
     {
-        $xml = '<post:Encoding>'.$this->encoding->id().'</post:Encoding>' . "\r\n";
+        $xml = '<post:Encoding>'.$this->encoding->code().'</post:Encoding>' . "\r\n";
         $xml .= '<post:LabelFormatID>'.$this->labelFormat->id().'</post:LabelFormatID>' . "\r\n";
         $xml .= '<post:LanguageID>'.$this->printerLanguage->name.'</post:LanguageID>' . "\r\n";
         $xml .= '<post:PaperLayoutID>'.$this->paperLayout->id().'</post:PaperLayoutID>' . "\r\n";
