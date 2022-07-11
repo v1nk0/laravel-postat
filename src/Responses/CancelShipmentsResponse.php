@@ -1,9 +1,9 @@
 <?php
 
-namespace V1nk0\PostatPlc\Responses;
+namespace V1nk0\LaravelPostat\Responses;
 
-use V1nk0\PostatPlc\Entities\CancelShipmentResult;
-use V1nk0\PostatPlc\Response;
+use V1nk0\LaravelPostat\Entities\CancelShipmentResult;
+use V1nk0\LaravelPostat\Response;
 
 class CancelShipmentsResponse extends Response
 {

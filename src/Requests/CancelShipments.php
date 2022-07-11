@@ -1,16 +1,16 @@
 <?php
 
-namespace V1nk0\PostatPlc\Requests;
+namespace V1nk0\LaravelPostat\Requests;
 
 use Illuminate\Support\Facades\Log;
 use SimpleXMLElement;
-use V1nk0\PostatPlc\Data\CancelShipmentRow;
-use V1nk0\PostatPlc\Data\ColloCodeList;
-use V1nk0\PostatPlc\Entities\CancelShipmentResult;
-use V1nk0\PostatPlc\Exceptions\PlcException;
-use V1nk0\PostatPlc\Request;
-use V1nk0\PostatPlc\Response;
-use V1nk0\PostatPlc\Responses\CancelShipmentsResponse;
+use V1nk0\LaravelPostat\Data\CancelShipmentRow;
+use V1nk0\LaravelPostat\Data\ColloCodeList;
+use V1nk0\LaravelPostat\Entities\CancelShipmentResult;
+use V1nk0\LaravelPostat\Exceptions\PlcException;
+use V1nk0\LaravelPostat\Request;
+use V1nk0\LaravelPostat\Response;
+use V1nk0\LaravelPostat\Responses\CancelShipmentsResponse;
 
 class CancelShipments extends Request
 {

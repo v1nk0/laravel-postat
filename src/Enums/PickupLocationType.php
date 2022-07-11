@@ -1,6 +1,6 @@
 <?php
 
-namespace V1nk0\PostatPlc\Enums;
+namespace V1nk0\LaravelPostat\Enums;
 
 enum PickupLocationType: string
 {

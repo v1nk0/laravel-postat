@@ -1,10 +1,10 @@
 <?php
 
-namespace V1nk0\PostatPlc\Contracts;
+namespace V1nk0\LaravelPostat\Contracts;
 
 use SimpleXMLElement;
-use V1nk0\PostatPlc\Exceptions\PlcException;
-use V1nk0\PostatPlc\Response;
+use V1nk0\LaravelPostat\Exceptions\PlcException;
+use V1nk0\LaravelPostat\Response;
 
 interface RequestContract
 {

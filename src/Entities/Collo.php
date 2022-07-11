@@ -1,6 +1,6 @@
 <?php
 
-namespace V1nk0\PostatPlc\Entities;
+namespace V1nk0\LaravelPostat\Entities;
 
 class Collo
 {

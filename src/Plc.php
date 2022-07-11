@@ -1,23 +1,23 @@
 <?php
 
-namespace V1nk0\PostatPlc;
+namespace V1nk0\LaravelPostat;
 
-use V1nk0\PostatPlc\Data\AddressRow;
-use V1nk0\PostatPlc\Data\CancelShipmentRow;
-use V1nk0\PostatPlc\Data\ColloCodeList;
-use V1nk0\PostatPlc\Data\PickupOrderRow;
-use V1nk0\PostatPlc\Data\ShipmentRow;
-use V1nk0\PostatPlc\Exceptions\PlcException;
-use V1nk0\PostatPlc\Requests\CancelPickupOrder;
-use V1nk0\PostatPlc\Requests\CancelShipments;
-use V1nk0\PostatPlc\Requests\GetAvailableTimeWindowsForPickupOrder;
-use V1nk0\PostatPlc\Requests\ImportPickupOrderBusiness;
-use V1nk0\PostatPlc\Requests\ImportShipment;
-use V1nk0\PostatPlc\Responses\CancelPickupOrderResponse;
-use V1nk0\PostatPlc\Responses\CancelShipmentsResponse;
-use V1nk0\PostatPlc\Responses\GetAvailableTimeWindowsForPickupOrderResponse;
-use V1nk0\PostatPlc\Responses\ImportPickupOrderBusinessResponse;
-use V1nk0\PostatPlc\Responses\ImportShipmentResponse;
+use V1nk0\LaravelPostat\Data\AddressRow;
+use V1nk0\LaravelPostat\Data\CancelShipmentRow;
+use V1nk0\LaravelPostat\Data\ColloCodeList;
+use V1nk0\LaravelPostat\Data\PickupOrderRow;
+use V1nk0\LaravelPostat\Data\ShipmentRow;
+use V1nk0\LaravelPostat\Exceptions\PlcException;
+use V1nk0\LaravelPostat\Requests\CancelPickupOrder;
+use V1nk0\LaravelPostat\Requests\CancelShipments;
+use V1nk0\LaravelPostat\Requests\GetAvailableTimeWindowsForPickupOrder;
+use V1nk0\LaravelPostat\Requests\ImportPickupOrderBusiness;
+use V1nk0\LaravelPostat\Requests\ImportShipment;
+use V1nk0\LaravelPostat\Responses\CancelPickupOrderResponse;
+use V1nk0\LaravelPostat\Responses\CancelShipmentsResponse;
+use V1nk0\LaravelPostat\Responses\GetAvailableTimeWindowsForPickupOrderResponse;
+use V1nk0\LaravelPostat\Responses\ImportPickupOrderBusinessResponse;
+use V1nk0\LaravelPostat\Responses\ImportShipmentResponse;
 
 class Plc
 {

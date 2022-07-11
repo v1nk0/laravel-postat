@@ -1,8 +1,8 @@
 <?php
 
-namespace V1nk0\PostatPlc\Responses;
+namespace V1nk0\LaravelPostat\Responses;
 
-use V1nk0\PostatPlc\Response;
+use V1nk0\LaravelPostat\Response;
 
 class ImportPickupOrderBusinessResponse extends Response
 {

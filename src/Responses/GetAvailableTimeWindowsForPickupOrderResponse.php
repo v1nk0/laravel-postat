@@ -1,9 +1,9 @@
 <?php
 
-namespace V1nk0\PostatPlc\Responses;
+namespace V1nk0\LaravelPostat\Responses;
 
-use V1nk0\PostatPlc\Entities\PickupTimeWindow;
-use V1nk0\PostatPlc\Response;
+use V1nk0\LaravelPostat\Entities\PickupTimeWindow;
+use V1nk0\LaravelPostat\Response;
 
 class GetAvailableTimeWindowsForPickupOrderResponse extends Response
 {

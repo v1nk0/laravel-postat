@@ -1,6 +1,6 @@
 <?php
 
-namespace V1nk0\PostatPlc\Data;
+namespace V1nk0\LaravelPostat\Data;
 
 use Exception;
 use Spatie\LaravelData\Data;

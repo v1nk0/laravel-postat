@@ -1,11 +1,11 @@
 <?php
 
-namespace V1nk0\PostatPlc;
+namespace V1nk0\LaravelPostat;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use V1nk0\PostatPlc\Contracts\RequestContract;
-use V1nk0\PostatPlc\Exceptions\PlcException;
+use V1nk0\LaravelPostat\Contracts\RequestContract;
+use V1nk0\LaravelPostat\Exceptions\PlcException;
 
 abstract class Request implements RequestContract
 {

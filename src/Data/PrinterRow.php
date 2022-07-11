@@ -1,12 +1,12 @@
 <?php
 
-namespace V1nk0\PostatPlc\Data;
+namespace V1nk0\LaravelPostat\Data;
 
 use Spatie\LaravelData\Data;
-use V1nk0\PostatPlc\Enums\Encoding;
-use V1nk0\PostatPlc\Enums\LabelFormat;
-use V1nk0\PostatPlc\Enums\PaperLayout;
-use V1nk0\PostatPlc\Enums\PrinterLanguage;
+use V1nk0\LaravelPostat\Enums\Encoding;
+use V1nk0\LaravelPostat\Enums\LabelFormat;
+use V1nk0\LaravelPostat\Enums\PaperLayout;
+use V1nk0\LaravelPostat\Enums\PrinterLanguage;
 
 class PrinterRow extends Data
 {

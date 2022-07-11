@@ -1,6 +1,6 @@
 <?php
 
-namespace V1nk0\PostatPlc;
+namespace V1nk0\LaravelPostat;
 
 abstract class Response
 {

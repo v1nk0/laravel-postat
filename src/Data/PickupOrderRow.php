@@ -1,10 +1,10 @@
 <?php
 
-namespace V1nk0\PostatPlc\Data;
+namespace V1nk0\LaravelPostat\Data;
 
-use V1nk0\PostatPlc\Enums\PickupLocationType;
 use Spatie\LaravelData\Data;
-use V1nk0\PostatPlc\Enums\SecurePickupLocationType;
+use V1nk0\LaravelPostat\Enums\PickupLocationType;
+use V1nk0\LaravelPostat\Enums\SecurePickupLocationType;
 
 class PickupOrderRow extends Data
 {

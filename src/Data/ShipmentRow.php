@@ -1,10 +1,10 @@
 <?php
 
-namespace V1nk0\PostatPlc\Data;
+namespace V1nk0\LaravelPostat\Data;
 
 use Carbon\Carbon;
 use Spatie\LaravelData\Data;
-use V1nk0\PostatPlc\Enums\Product;
+use V1nk0\LaravelPostat\Enums\Product;
 
 class ShipmentRow extends Data
 {

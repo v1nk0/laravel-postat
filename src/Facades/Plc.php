@@ -1,17 +1,17 @@
 <?php
 
-namespace V1nk0\PostatPlc\Facades;
+namespace V1nk0\LaravelPostat\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use V1nk0\PostatPlc\Data\AddressRow;
-use V1nk0\PostatPlc\Data\CancelShipmentRow;
-use V1nk0\PostatPlc\Data\PickupOrderRow;
-use V1nk0\PostatPlc\Data\ShipmentRow;
-use V1nk0\PostatPlc\Responses\CancelPickupOrderResponse;
-use V1nk0\PostatPlc\Responses\CancelShipmentsResponse;
-use V1nk0\PostatPlc\Responses\GetAvailableTimeWindowsForPickupOrderResponse;
-use V1nk0\PostatPlc\Responses\ImportPickupOrderBusinessResponse;
-use V1nk0\PostatPlc\Responses\ImportShipmentResponse;
+use V1nk0\LaravelPostat\Data\AddressRow;
+use V1nk0\LaravelPostat\Data\CancelShipmentRow;
+use V1nk0\LaravelPostat\Data\PickupOrderRow;
+use V1nk0\LaravelPostat\Data\ShipmentRow;
+use V1nk0\LaravelPostat\Responses\CancelPickupOrderResponse;
+use V1nk0\LaravelPostat\Responses\CancelShipmentsResponse;
+use V1nk0\LaravelPostat\Responses\GetAvailableTimeWindowsForPickupOrderResponse;
+use V1nk0\LaravelPostat\Responses\ImportPickupOrderBusinessResponse;
+use V1nk0\LaravelPostat\Responses\ImportShipmentResponse;
 
 /**
  * @method static CancelPickupOrderResponse cancelPickupOrder(string $pickupOrderNumber, string $plc_client_id = null, string $plc_org_unit_guid = null, string $plc_org_unit_id = null, string $plc_env = null)

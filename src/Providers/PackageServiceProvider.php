@@ -1,9 +1,9 @@
 <?php
 
-namespace V1nk0\PostatPlc\Providers;
+namespace V1nk0\LaravelPostat\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use V1nk0\PostatPlc\Plc;
+use V1nk0\LaravelPostat\Plc;
 
 class PackageServiceProvider extends ServiceProvider
 {

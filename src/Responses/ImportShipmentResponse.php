@@ -1,10 +1,10 @@
 <?php
 
-namespace V1nk0\PostatPlc\Responses;
+namespace V1nk0\LaravelPostat\Responses;
 
-use V1nk0\PostatPlc\Entities\Collo;
-use V1nk0\PostatPlc\Entities\Label;
-use V1nk0\PostatPlc\Response;
+use V1nk0\LaravelPostat\Entities\Collo;
+use V1nk0\LaravelPostat\Entities\Label;
+use V1nk0\LaravelPostat\Response;
 
 class ImportShipmentResponse extends Response
 {

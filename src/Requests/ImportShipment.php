@@ -1,16 +1,16 @@
 <?php
 
-namespace V1nk0\PostatPlc\Requests;
+namespace V1nk0\LaravelPostat\Requests;
 
 use SimpleXMLElement;
-use V1nk0\PostatPlc\Data\ShipmentRow;
-use V1nk0\PostatPlc\Entities\Collo;
-use V1nk0\PostatPlc\Entities\ColloCode;
-use V1nk0\PostatPlc\Entities\Label;
-use V1nk0\PostatPlc\Enums\PrinterLanguage;
-use V1nk0\PostatPlc\Request;
-use V1nk0\PostatPlc\Response;
-use V1nk0\PostatPlc\Responses\ImportShipmentResponse;
+use V1nk0\LaravelPostat\Data\ShipmentRow;
+use V1nk0\LaravelPostat\Entities\Collo;
+use V1nk0\LaravelPostat\Entities\ColloCode;
+use V1nk0\LaravelPostat\Entities\Label;
+use V1nk0\LaravelPostat\Enums\PrinterLanguage;
+use V1nk0\LaravelPostat\Request;
+use V1nk0\LaravelPostat\Response;
+use V1nk0\LaravelPostat\Responses\ImportShipmentResponse;
 
 class ImportShipment extends Request
 {
