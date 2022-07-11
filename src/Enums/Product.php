@@ -2,26 +2,26 @@
 
 namespace V1nk0\PostatPlc\Enums;
 
-enum Product
+enum Product: string
 {
-    case RETURN_PARCEL;
-    case RETURN_PARCEL_INTERNATIONAL;
-    case PREMIUM_LIGHT;
-    case PARCEL_PREMIUM_SELECT_AUSTRIA;
-    case SMALL_PARCEL;
-    case NEXT_DAY;
-    case PARCEL_AUSTRIA;
-    case PARCEL_PREMIUM_INTERNATIONAL;
-    case COMBI_FREIGHT_AUSTRIA;
-    case COMBI_FREIGHT_INTERNATIONAL;
-    case PARCEL_PREMUIUM_AUSTRIA;
-    case POST_EXPRESS_AUSTRIA;
-    case POST_EXPRESS_INTERNATIONAL;
-    case M_SMALL_PARCEL;
-    case PARCEL_PLUS_INTERNATIONAL_OUTBOUND;
-    case PARCEL_PLUS_INTERNATIONAL;
-    case SMALL_PARCEL_2000;
-    case SMALL_PARCEL_2000_PLUS;
+    case RETURN_PARCEL = 'RETURN_PARCEL';
+    case RETURN_PARCEL_INTERNATIONAL = 'RETURN_PARCEL_INTERNATIONAL';
+    case PREMIUM_LIGHT = 'PREMIUM_LIGHT';
+    case PARCEL_PREMIUM_SELECT_AUSTRIA = 'PARCEL_PREMIUM_SELECT_AUSTRIA';
+    case SMALL_PARCEL = 'SMALL_PARCEL';
+    case NEXT_DAY = 'NEXT_DAY';
+    case PARCEL_AUSTRIA = 'PARCEL_AUSTRIA';
+    case PARCEL_PREMIUM_INTERNATIONAL = 'PARCEL_PREMIUM_INTERNATIONAL';
+    case COMBI_FREIGHT_AUSTRIA = 'COMBI_FREIGHT_AUSTRIA';
+    case COMBI_FREIGHT_INTERNATIONAL = 'COMBI_FREIGHT_INTERNATIONAL';
+    case PARCEL_PREMIUM_AUSTRIA = 'PARCEL_PREMUIUM_AUSTRIA';
+    case POST_EXPRESS_AUSTRIA = 'POST_EXPRESS_AUSTRIA';
+    case POST_EXPRESS_INTERNATIONAL = 'POST_EXPRESS_INTERNATIONAL';
+    case M_SMALL_PARCEL = 'M_SMALL_PARCEL';
+    case PARCEL_PLUS_INTERNATIONAL_OUTBOUND = 'PARCEL_PLUS_INTERNATIONAL_OUTBOUND';
+    case PARCEL_PLUS_INTERNATIONAL = 'PARCEL_PLUS_INTERNATIONAL';
+    case SMALL_PARCEL_2000 = 'SMALL_PARCEL_2000';
+    case SMALL_PARCEL_2000_PLUS = 'SMALL_PARCEL_2000_PLUS';
 
     public function id(): int|string
     {
@@ -36,7 +36,7 @@ enum Product
             Product::PARCEL_PREMIUM_INTERNATIONAL => 45,
             Product::COMBI_FREIGHT_AUSTRIA => 47,
             Product::COMBI_FREIGHT_INTERNATIONAL => 49,
-            Product::PARCEL_PREMUIUM_AUSTRIA => 31,
+            Product::PARCEL_PREMIUM_AUSTRIA => 31,
             Product::POST_EXPRESS_AUSTRIA => '01',
             Product::POST_EXPRESS_INTERNATIONAL => 46,
             Product::M_SMALL_PARCEL => 78,
@@ -60,7 +60,7 @@ enum Product
             Product::PARCEL_PREMIUM_INTERNATIONAL => 'Paket Premium International',
             Product::COMBI_FREIGHT_AUSTRIA => 'Combi-freight Österreich',
             Product::COMBI_FREIGHT_INTERNATIONAL => 'Combi-freight International',
-            Product::PARCEL_PREMUIUM_AUSTRIA => 'Paket Premium Österreich B2B',
+            Product::PARCEL_PREMIUM_AUSTRIA => 'Paket Premium Österreich B2B',
             Product::POST_EXPRESS_AUSTRIA => 'Post Express Österreich',
             Product::POST_EXPRESS_INTERNATIONAL => 'Post Express International',
             Product::M_SMALL_PARCEL => 'Päckchen M mit Sendungsverfolgung',

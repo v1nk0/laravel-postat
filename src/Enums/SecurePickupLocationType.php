@@ -2,14 +2,14 @@
 
 namespace V1nk0\PostatPlc\Enums;
 
-enum SecurePickupLocationType
+enum SecurePickupLocationType: string
 {
-    case FrontDoor;
-    case ApartmentDoor;
-    case Letterbox;
-    case Garage;
-    case Fence;
-    case Other;
+    case FrontDoor = 'FRONT_DOOR';
+    case ApartmentDoor = 'APARTMENT_DOOR';
+    case Letterbox = 'LETTERBOX';
+    case Garage = 'GARAGE';
+    case Fence = 'FENCE';
+    case Other = 'OTHER';
 
     public function code(): int
     {

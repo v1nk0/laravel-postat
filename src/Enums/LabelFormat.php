@@ -2,10 +2,10 @@
 
 namespace V1nk0\PostatPlc\Enums;
 
-enum LabelFormat
+enum LabelFormat: string
 {
-    case FORMAT_100x150;
-    case FORMAT_100x200;
+    case FORMAT_100x150 = 'FORMAT_100x150';
+    case FORMAT_100x200 = 'FORMAT_100x200';
 
     public function id(): string
     {

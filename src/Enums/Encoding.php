@@ -2,10 +2,10 @@
 
 namespace V1nk0\PostatPlc\Enums;
 
-enum Encoding
+enum Encoding: string
 {
-    case UTF8;
-    case WINDOWS1252;
+    case UTF8 = 'UTF8';
+    case WINDOWS1252 = 'WINDOWS1252';
 
     public function id(): string
     {

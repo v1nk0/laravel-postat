@@ -2,11 +2,11 @@
 
 namespace V1nk0\PostatPlc\Enums;
 
-enum PaperLayout
+enum PaperLayout: string
 {
-    case A5inA4;
-    case A5;
-    case A4;
+    case A5inA4 = 'A5inA4';
+    case A5 = 'A5';
+    case A4 = 'A4';
 
     public function id(): string
     {

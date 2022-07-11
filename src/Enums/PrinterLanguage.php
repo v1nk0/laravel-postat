@@ -2,8 +2,8 @@
 
 namespace V1nk0\PostatPlc\Enums;
 
-enum PrinterLanguage
+enum PrinterLanguage: string
 {
-    case ZPL2;
-    case PDF;
+    case ZPL2 = 'ZPL2';
+    case PDF = 'PDF';
 }
