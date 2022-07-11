@@ -17,8 +17,12 @@ class Label
         public ?string $base64 = null,
     ){}
 
-    public function content(): ?string
+    public function content(bool $decode = true): ?string
     {
-        return ($this->base64) ? base64_decode($this->base64) : null;
+        if($decode) {
+            return ($this->base64) ? base64_decode($this->base64) : null;
+        }
+
+        return $this->base64;
     }
 }
