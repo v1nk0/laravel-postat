@@ -3,6 +3,8 @@
 namespace V1nk0\LaravelPostat\Requests;
 
 use SimpleXMLElement;
+use V1nk0\LaravelPostat\Credentials;
+use V1nk0\LaravelPostat\Environment;
 use V1nk0\LaravelPostat\Request;
 use V1nk0\LaravelPostat\Response;
 use V1nk0\LaravelPostat\Responses\CancelPickupOrderResponse;
@@ -11,9 +13,12 @@ class CancelPickupOrder extends Request
 {
     public string $action = 'CancelPickupOrder';
 
-    public function __construct(protected string $pickupOrderNumber)
-    {
-        parent::__construct();
+    public function __construct(
+        protected string $pickupOrderNumber,
+        protected Credentials $credentials,
+        protected Environment $environment
+    ){
+        parent::__construct($this->credentials, $environment);
     }
 
     public function getBody(): string

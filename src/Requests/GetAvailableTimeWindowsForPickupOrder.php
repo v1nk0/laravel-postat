@@ -3,7 +3,9 @@
 namespace V1nk0\LaravelPostat\Requests;
 
 use SimpleXMLElement;
+use V1nk0\LaravelPostat\Credentials;
 use V1nk0\LaravelPostat\Entities\PickupTimeWindow;
+use V1nk0\LaravelPostat\Environment;
 use V1nk0\LaravelPostat\Request;
 use V1nk0\LaravelPostat\Data\AddressRow;
 use V1nk0\LaravelPostat\Response;
@@ -13,9 +15,12 @@ class GetAvailableTimeWindowsForPickupOrder extends Request
 {
     public string $action = 'GetAvailableTimeWindowsForPickupOrder';
 
-    public function __construct(protected AddressRow $address)
-    {
-        parent::__construct();
+    public function __construct(
+        protected AddressRow $address,
+        protected Credentials $credentials,
+        protected Environment $environment
+    ){
+        parent::__construct($this->credentials, $this->environment);
     }
 
     public function getBody(): string

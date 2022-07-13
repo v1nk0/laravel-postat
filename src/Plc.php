@@ -4,7 +4,6 @@ namespace V1nk0\LaravelPostat;
 
 use V1nk0\LaravelPostat\Data\AddressRow;
 use V1nk0\LaravelPostat\Data\CancelShipmentRow;
-use V1nk0\LaravelPostat\Data\ColloCodeList;
 use V1nk0\LaravelPostat\Data\PickupOrderRow;
 use V1nk0\LaravelPostat\Data\ShipmentRow;
 use V1nk0\LaravelPostat\Exceptions\PlcException;
@@ -21,6 +20,21 @@ use V1nk0\LaravelPostat\Responses\ImportShipmentResponse;
 
 class Plc
 {
+    protected Credentials $credentials;
+
+    protected Environment $environment;
+
+    public function __construct()
+    {
+        $this->credentials = new Credentials(
+            config('services.plc.client_id'),
+            config('services.plc.org_unit_guid'),
+            config('services.plc.org_unit_id')
+        );
+
+        $this->environment = $environment ?? Environment::tryFrom(config('services.plc.env'));
+    }
+
     /**
      * @param string $pickupOrderNumber
      * @return CancelPickupOrderResponse
@@ -28,7 +42,7 @@ class Plc
      */
     public function cancelPickupOrder(string $pickupOrderNumber): Response
     {
-        $request = new CancelPickupOrder($pickupOrderNumber);
+        $request = new CancelPickupOrder($pickupOrderNumber, $this->credentials, $this->environment);
         return $request->submit();
     }
 
@@ -39,7 +53,7 @@ class Plc
      */
     public function cancelShipments(array|CancelShipmentRow $cancelShipmentRow_s): Response
     {
-        $request = new CancelShipments($cancelShipmentRow_s);
+        $request = new CancelShipments($cancelShipmentRow_s, $this->credentials, $this->environment);
         return $request->submit();
     }
 
@@ -50,7 +64,7 @@ class Plc
      */
     public function getAvailableTimeWindowsForPickupOrder(AddressRow $address): Response
     {
-        $request = new GetAvailableTimeWindowsForPickupOrder($address);
+        $request = new GetAvailableTimeWindowsForPickupOrder($address, $this->credentials, $this->environment);
         return $request->submit();
     }
 
@@ -61,7 +75,7 @@ class Plc
      */
     public function importPickupOrderBusiness(PickupOrderRow $pickupOrderRow): Response
     {
-        $request = new ImportPickupOrderBusiness($pickupOrderRow);
+        $request = new ImportPickupOrderBusiness($pickupOrderRow, $this->credentials, $this->environment);
         return $request->submit();
     }
 
@@ -72,7 +86,31 @@ class Plc
      */
     public function importShipment(ShipmentRow $shipmentRow): Response
     {
-        $request = new ImportShipment($shipmentRow);
+        $request = new ImportShipment($shipmentRow, $this->credentials, $this->environment);
         return $request->submit();
+    }
+
+    /** Overwrite Client ID */
+    public function setClientId(int $clientId)
+    {
+        $this->credentials->setClientId($clientId);
+    }
+
+    /** Overwrite Organisation Unit GUID */
+    public function setOrgUnitGuid(string $orgUnitGuid)
+    {
+        $this->credentials->setOrgUnitGuid($orgUnitGuid);
+    }
+
+    /** Overwrite Organisation Unit ID */
+    public function setOrgUnitId(int $orgUnitId)
+    {
+        $this->credentials->setOrgUnitId($orgUnitId);
+    }
+
+    /** Overwrite Environment */
+    public function setEnvironment(Environment $environment)
+    {
+        $this->environment = $environment;
     }
 }

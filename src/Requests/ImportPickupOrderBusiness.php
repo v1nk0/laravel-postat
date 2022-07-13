@@ -3,7 +3,9 @@
 namespace V1nk0\LaravelPostat\Requests;
 
 use SimpleXMLElement;
+use V1nk0\LaravelPostat\Credentials;
 use V1nk0\LaravelPostat\Data\PickupOrderRow;
+use V1nk0\LaravelPostat\Environment;
 use V1nk0\LaravelPostat\Request;
 use V1nk0\LaravelPostat\Response;
 use V1nk0\LaravelPostat\Responses\ImportPickupOrderBusinessResponse;
@@ -12,9 +14,12 @@ class ImportPickupOrderBusiness extends Request
 {
     public string $action = 'ImportPickupOrderBusiness';
 
-    public function __construct(protected PickupOrderRow $pickupOrderRow)
-    {
-        parent::__construct();
+    public function __construct(
+        protected PickupOrderRow $pickupOrderRow,
+        protected Credentials $credentials,
+        protected Environment $environment
+    ) {
+        parent::__construct($this->credentials, $this->environment);
     }
 
     public function getBody(): string

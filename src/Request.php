@@ -9,26 +9,21 @@ use V1nk0\LaravelPostat\Exceptions\PlcException;
 
 abstract class Request implements RequestContract
 {
-    public string $action;
+    private Credentials $credentials;
 
-    protected string $client_id;
-    protected string $org_unit_id;
-    protected string $org_unit_guid;
+    public string $action;
 
     public string $userAgent;
 
     protected string $endpoint;
 
-    public function __construct(?string $client_id = null, ?string $org_unit_guid = null, ?string $org_unit_id = null, ?string $env = null)
+    public function __construct(Credentials $credentials, Environment $environment)
     {
-        $this->client_id = $client_id ?? config('services.plc.client_id');
-        $this->org_unit_id = $org_unit_id ?? config('services.plc.org_unit_id');
-        $this->org_unit_guid = $org_unit_guid ?? config('services.plc.org_unit_guid');
+        $this->credentials = $credentials;
 
         $this->userAgent = config('app.name') . ' - Laravel HTTP-Client';
 
-        $env = (in_array($env, ['PRODUCTION', 'TEST'])) ? $env : config('services.plc.env');
-        $this->endpoint = ($env === 'PRODUCTION') ? 'https://plc.post.at/Post.Webservice/ShippingService.svc/secure' : 'https://abn-plc.post.at/DataService/Post.Webservice/ShippingService.svc/secure';
+        $this->endpoint = ($environment === Environment::PRODUCTION) ? 'https://plc.post.at/Post.Webservice/ShippingService.svc/secure' : 'https://abn-plc.post.at/DataService/Post.Webservice/ShippingService.svc/secure';
     }
 
     /**
@@ -72,24 +67,6 @@ abstract class Request implements RequestContract
         return $this->returnResponse($response);
     }
 
-    /** Overwrite default Client ID */
-    protected function setClientId(string $clientId)
-    {
-        $this->client_id = $clientId;
-    }
-
-    /** Overwrite default Organisation Unit ID */
-    protected function setOrgUnitId(string $orgUnitId)
-    {
-        $this->org_unit_id = $orgUnitId;
-    }
-
-    /** Overwrite default Organisation Unit GUID */
-    protected function setOrgUnitGuid(string $orgUnitGuid)
-    {
-        $this->org_unit_guid = $orgUnitGuid;
-    }
-
     private function assembleXml(string $body): string
     {
         $xml = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:post="http://post.ondot.at" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:core="http://Core.Model" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">'."\r\n";
@@ -103,14 +80,14 @@ abstract class Request implements RequestContract
 
         $searchFor = [
             '{{CLIENT_ID}}',
+            '{{ORG_UNIT_GUID}}',
             '{{ORG_UNIT_ID}}',
-            '{{ORG_UNIT_GUID}}'
         ];
 
         $replaceWith = [
-            $this->client_id,
-            $this->org_unit_id,
-            $this->org_unit_guid
+            $this->credentials->getClientId(),
+            $this->credentials->getOrgUnitGuid(),
+            $this->credentials->getOrgUnitId(),
         ];
 
         return str_replace($searchFor, $replaceWith, $xml);

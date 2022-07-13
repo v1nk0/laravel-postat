@@ -4,9 +4,11 @@ namespace V1nk0\LaravelPostat\Requests;
 
 use Illuminate\Support\Facades\Log;
 use SimpleXMLElement;
+use V1nk0\LaravelPostat\Credentials;
 use V1nk0\LaravelPostat\Data\CancelShipmentRow;
 use V1nk0\LaravelPostat\Data\ColloCodeList;
 use V1nk0\LaravelPostat\Entities\CancelShipmentResult;
+use V1nk0\LaravelPostat\Environment;
 use V1nk0\LaravelPostat\Exceptions\PlcException;
 use V1nk0\LaravelPostat\Request;
 use V1nk0\LaravelPostat\Response;
@@ -19,9 +21,12 @@ class CancelShipments extends Request
     /**
      * @param CancelShipmentRow[]|CancelShipmentRow $cancelShipmentRow_s
      */
-    public function __construct(protected array|CancelShipmentRow $cancelShipmentRow_s)
-    {
-        parent::__construct();
+    public function __construct(
+        protected array|CancelShipmentRow $cancelShipmentRow_s,
+        protected Credentials $credentials,
+        protected Environment $environment
+    ){
+        parent::__construct($this->credentials, $environment);
     }
 
     /** @throws PlcException */

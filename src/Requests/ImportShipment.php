@@ -3,11 +3,13 @@
 namespace V1nk0\LaravelPostat\Requests;
 
 use SimpleXMLElement;
+use V1nk0\LaravelPostat\Credentials;
 use V1nk0\LaravelPostat\Data\ShipmentRow;
 use V1nk0\LaravelPostat\Entities\Collo;
 use V1nk0\LaravelPostat\Entities\ColloCode;
 use V1nk0\LaravelPostat\Entities\Label;
 use V1nk0\LaravelPostat\Enums\PrinterLanguage;
+use V1nk0\LaravelPostat\Environment;
 use V1nk0\LaravelPostat\Request;
 use V1nk0\LaravelPostat\Response;
 use V1nk0\LaravelPostat\Responses\ImportShipmentResponse;
@@ -16,9 +18,12 @@ class ImportShipment extends Request
 {
     public string $action = 'ImportShipment';
 
-    public function __construct(protected ShipmentRow $shipmentRow)
-    {
-        parent::__construct();
+    public function __construct(
+        protected ShipmentRow $shipmentRow,
+        protected Credentials $credentials,
+        protected Environment $environment
+    ){
+        parent::__construct($this->credentials, $this->environment);
     }
 
     public function getBody(): string
