@@ -15,7 +15,7 @@ class Credentials
         $this->clientId = $clientId;
     }
 
-    public function setOrgUnitGuid(int $orgUnitGuid): void
+    public function setOrgUnitGuid(string $orgUnitGuid): void
     {
         $this->orgUnitGuid = $orgUnitGuid;
     }
