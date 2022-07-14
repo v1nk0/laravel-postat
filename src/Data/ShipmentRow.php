@@ -57,7 +57,7 @@ class ShipmentRow extends Data
                 foreach($this->colloList as $colloRow) {
                     $xml .= '   <post:ColloRow>' . "\r\n";
                     $xml .= '       '.$colloRow->toXml() . "\r\n";
-                    $xml .= '   <post:ColloRow>' . "\r\n";
+                    $xml .= '   </post:ColloRow>' . "\r\n";
                 }
             $xml .= '</post:ColloList>' . "\r\n";
         }
