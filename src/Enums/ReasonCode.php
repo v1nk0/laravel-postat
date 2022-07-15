@@ -41,7 +41,7 @@ enum ReasonCode: string
             self::BS => 'Verzögerung wegen Beschädigung - Inhaltsprüfung', // Delay due to damage - content checked
             self::EAW => 'Sendung in Abholstation eingelangt', // Item arrived at Pick-Up Station
             self::EBE => 'e-Benachrichtigung versendet', // e-Notification sent
-            self::EZ => 'Sendung in Verteilung', // Item distributed
+            self::EZ, self::XX => 'Sendung in Verteilung', // Item distributed
             self::HO => 'Sendung in Post-Geschäftsstelle abholbereit', // Item ready for pick up at postal service point
             self::NZ => 'Sendung wird nochmals zugestellt', // Item will be delivered again
             self::RS => 'Retour - Sendung konnte nicht zugestellt werden', // Item could not be delivered - return
@@ -49,7 +49,6 @@ enum ReasonCode: string
             self::SF => 'Zustellhindernis – nochmaliger Zustellversuch', // Item could not be delivered – further delivery attempt
             self::TV => 'Zustellung nach Terminvereinbarung', // Item will be delivered on appointment
             self::UPB => 'Sendung in Post-Empfangsbox eingelangt', // Item arrived at Post Pick-Up Box
-            self::XX => 'Sendung in Verteilung', // Item distributed
             self::ZA => 'Sendung zugestellt', // Item delivered
             self::ZAW => 'Sendung von Abholstation abgeholt', // Item picked up at Pick-Up Station
             self::ZB => 'Sendung an Übernahmsberechtigten übergeben', // Item delivered to authorized representative
@@ -58,5 +57,25 @@ enum ReasonCode: string
             self::ZM => 'Sendung an Mitbewohner/in zugestellt', // Item delivered to flat mate
             self::ZP => 'Sendung an Empfänger übergeben', // Item delivered to consignee
         };
+    }
+
+    public function delivered(): bool
+    {
+        return (str_starts_with($this->value, 'Z'));
+    }
+
+    public function failed(): bool
+    {
+        return ($this === self::AR || $this === self::RS);
+    }
+
+    public function pending(): bool
+    {
+        return (!$this->delivered() && !$this->failed());
+    }
+
+    public function completed(): bool
+    {
+        return !$this->pending();
     }
 }

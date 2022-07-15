@@ -23,4 +23,24 @@ enum TrackingState: string
             self::ZU => 'Sendung zugestellt', // Item delivered
         };
     }
+
+    public function delivered(): bool
+    {
+        return ($this === self::ZU);
+    }
+
+    public function failed(): bool
+    {
+        return ($this === self::RE);
+    }
+
+    public function pending(): bool
+    {
+        return (!$this->delivered() && !$this->failed());
+    }
+
+    public function completed(): bool
+    {
+        return !$this->pending();
+    }
 }
