@@ -21,6 +21,8 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
+        "laravel/framework": "^9",
+        "nesbot/carbon": "^2",
         "spatie/laravel-data": "^1.4"
     },
     "extra": {

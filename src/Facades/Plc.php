@@ -25,6 +25,6 @@ class Plc extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'plc';
+        return 'postat.plc';
     }
 }
