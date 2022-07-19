@@ -33,15 +33,31 @@ class Parcel
         $this->parcelEvents[] = $parcelEvent;
     }
 
-    // Shortcut
+    public function getLastParcelEvent(): ?ParcelEvent
+    {
+        if(count($this->parcelEvents) < 1) {
+            return null;
+        }
+
+        $events = $this->parcelEvents;
+        return end($events);
+    }
+
+    // Shortcut for addIconDescription()
     public function addIcon(IconDescription $iconDescription)
     {
         $this->addIconDescription($iconDescription);
     }
 
-    // Shortcut
+    // Shortcut for addParcelEvent()
     public function addEvent(ParcelEvent $parcelEvent)
     {
         $this->addParcelEvent($parcelEvent);
+    }
+
+    // Shortcut for getLastParcelEvent()
+    public function getLastEvent()
+    {
+        $this->getLastParcelEvent();
     }
 }

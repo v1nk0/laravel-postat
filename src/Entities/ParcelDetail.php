@@ -39,4 +39,14 @@ class ParcelDetail
     {
         $this->parcels = $parcel;
     }
+
+    public function getFirstParcel(): ?Parcel
+    {
+        if(count($this->parcels) < 1) {
+            return null;
+        }
+
+        $parcels = $this->parcels;
+        return reset($parcels);
+    }
 }
