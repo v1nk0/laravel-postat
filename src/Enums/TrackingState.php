@@ -19,7 +19,7 @@ enum TrackingState: string
             self::IV => 'Sendung in Verteilung', // Item distributed
             self::IZ => 'Sendung in Zustellung', // Item is out for delivery
             self::RE => 'Retour', // Return
-            self::RU => 'Verzögerung wegen Beschädigung', // Delay due to damage
+            self::RU => 'Rücksendung', // Delay due to damage
             self::ZU => 'Sendung zugestellt', // Item delivered
         };
     }

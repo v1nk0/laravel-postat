@@ -90,25 +90,35 @@ class Tracking
                     $iconDescriptionList,
                     $events,
                 );
-
-                return new ParcelDetail(
-                    $body->CustomerIdentCode,
-                    $body->ProductName,
-                    $body->CustomerShipmentNr ?? null,
-                    $body->ShpRefNr ?? null,
-                    $body->CostCenterRefNr ?? null,
-                    $body->AlternativeRefNr ?? null,
-                    ($body->DeliveryDay) ? Carbon::parse($body->DeliveryDay) : null,
-                    $body->DeliveryTimeFrameFrom ?? null,
-                    $body->DeliveryTimeFrameTo ?? null,
-                    $body->SapOrderNr ?? null,
-                    $body->SapInvoiceNr ?? null,
-                    $parcels,
-                );
             }
         }
         catch(Exception $e) {
             throw new Exception($e->getMessage());
         }
+
+        return new ParcelDetail(
+            $body->CustomerIdentCode,
+            $body->ProductName,
+            $body->CustomerShipmentNr ?? null,
+            $body->ShpRefNr ?? null,
+            $body->CostCenterRefNr ?? null,
+            $body->AlternativeRefNr ?? null,
+            ($body->DeliveryDay) ? Carbon::parse($body->DeliveryDay) : null,
+            $body->DeliveryTimeFrameFrom ?? null,
+            $body->DeliveryTimeFrameTo ?? null,
+            $body->SapOrderNr ?? null,
+            $body->SapInvoiceNr ?? null,
+            $parcels,
+        );
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
     }
 }
