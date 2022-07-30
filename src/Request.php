@@ -36,6 +36,8 @@ abstract class Request implements RequestContract
         try {
             $response = Http::withBody($xml, 'text/xml')
                 ->withoutVerifying()
+                ->timeout(config('services.postat.plc.timeout', 30))
+                ->retry(config('services.postat.plc.retry', 3), config('services.postat.plc.retry_backoff', 100))
                 ->withHeaders([
                     'SOAPAction' => 'http://post.ondot.at/IShippingService/'.$this->action,
                     'User-Agent' => $this->userAgent
