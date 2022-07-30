@@ -27,12 +27,12 @@ class Plc
     public function __construct()
     {
         $this->credentials = new Credentials(
-            config('services.plc.client_id'),
-            config('services.plc.org_unit_guid'),
-            config('services.plc.org_unit_id')
+            config('services.postat.plc.client_id'),
+            config('services.postat.plc.org_unit_guid'),
+            config('services.postat.plc.org_unit_id')
         );
 
-        $this->environment = $environment ?? Environment::tryFrom(config('services.plc.env'));
+        $this->environment = $environment ?? Environment::tryFrom(config('services.postat.plc.env'));
     }
 
     /**
