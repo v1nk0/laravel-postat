@@ -10,6 +10,8 @@ use V1nk0\LaravelPostat\Entities\ParcelDetail;
  * @method static ParcelDetail|null parcelDetail(string $trackingNumber) {
  *   @throws Exception
  * }
+ * @method static void setUsername(string $username)
+ * @method static void setPassword(string $password)
  */
 
 class Tracking extends Facade
