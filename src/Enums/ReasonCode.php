@@ -83,7 +83,7 @@ enum ReasonCode: string
     case CSI = 'CSI';
     case CST = 'CST';
     case CTG = 'CTG';
-    case CU = 'CVNP';
+    case CU = 'CU';
     case CVNP = 'CVNP';
     case CX = 'CX';
     case CZ = 'CZ';
