@@ -106,6 +106,7 @@ enum ReasonCode: string
     case EXC = 'EXC';
     case EXD = 'EXD';
     case EZ = 'EZ';
+    case FA = 'FA';
     case FFC = 'FFC';
     case FFCNA = 'FFCNA';
     case FG = 'FG';
@@ -300,6 +301,7 @@ enum ReasonCode: string
             self::EU => 'Empfänger unbekannt/verzogen', // Consignee unknown/has moved
             self::EXA => 'Sendung bei Zoll-/ Sicherheitskontrolle', // Item presented to customs/security
             self::EXC => 'Sendung nach Zoll-/ Sicherheitskontrolle freigegeben', // Item passed customs-/security check
+            self::FA, self::XFA => 'Empfängeradresse ungenügend', // Consignee address incomplete
             self::FFC => 'Zollanmeldungshindernis - Rückmeldung vom Empfänger eingelangt', // Obstacle to customs declaration - Feedback received from consignee
             self::FFCNA => 'Zollanmeldungshindernis - Rückmeldung vom Empfänger mit Annahmeverweigerung', // Obstacle to customs declaration - Feedback from the consignee with refusal of acceptance
             self::FG => 'Firma (vorübergehend) geschlossen', // Company (temporarily) closed
@@ -366,7 +368,6 @@ enum ReasonCode: string
             self::XA => 'Sendung ins Zielland weitergeleitet', // Item forwarded to destination country
             self::XAV => 'Annahme verweigert', // Item refused
             self::XEU => 'Empfänger unbekannt/verzogen', // Consignee unknown/has moved
-            self::XFA => 'Empfängeradresse ungenügend', // Consignee address incomplete
             self::XNB => 'Keine Rückmeldung vom Empfänger', // No response from consignee
             self::ZAW => 'Sendung von Abholstation abgeholt', // Item picked up at Pick-Up Station
             self::ZB => 'Sendung an Übernahmsberechtigten übergeben', // Item delivered to authorized representative
