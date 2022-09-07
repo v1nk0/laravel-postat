@@ -30,6 +30,7 @@ enum ReasonCode: string
     case AX = 'AX';
     case BC = 'BC';
     case BF = 'BF';
+    case BFM = 'BFM';
     case BH = 'BH';
     case BN = 'BN';
     case BS = 'BS';
@@ -115,6 +116,7 @@ enum ReasonCode: string
     case FX = 'FX';
     case GF = 'GF';
     case GG = 'GG';
+    case HB = 'HB';
     case HD = 'HD';
     case HG = 'HG';
     case HH = 'HH';
@@ -254,7 +256,7 @@ enum ReasonCode: string
             self::AW => 'Annahme verweigert - Ansprechpartner fehlt', // Item refused, contact person missing
             self::AX => 'Annahme verweigert - nicht bestellt', // Item refused, shipment not ordered
             self::BC => 'Anschriftsproblem', // Address incorrect / incomplete
-            self::BF => 'Verzögerung - Schadensprotokoll erstellt', // Delay - damage report compiled
+            self::BF, self::BFM => 'Verzögerung - Schadensprotokoll erstellt', // Delay - damage report compiled
             self::BH, self::BN => 'Empfänger nicht angetroffen - benachrichtigt', // Consignee not available at time of delivery - carded
             self::BS => 'Verzögerung wegen Beschädigung - Inhaltsprüfung', // Delay due to damage - content checked
             self::BU, self::DD, self::DS, self::DZ, self::EZ, self::IV, self::NBU, self::SW, self::VE, self::VT, self::WC, self::WZ, self::XX => 'Sendung in Verteilung', // Item distributed
@@ -307,6 +309,7 @@ enum ReasonCode: string
             self::FU => 'Empfänger im Urlaub', // Consignee on vacation
             self::FX => 'Elektronische Ankündigung fehlerhaft (Adressfehler)', // Pre notification incorrect (address error)
             self::GF, self::GG, self::IF => 'Verzögerung durch mangelhafte Angaben/Papiere', // Delay due to missing documents
+            self::HB => 'Empfänger nicht angetroffen - brieflich benachrichtigt', // Item could not be delivered - consignee notified
             self::HD => 'Sendung im Depot abholbereit', // Item ready for pick up at depot
             self::HG, self::OS, self::OV, self::OW, self::OX => 'Verzögerung - unvorhersehbares Zustellhindernis', // Delay due to force majeure
             self::HH, self::ZA, self::ZS, self::ZU, self::ZW, self::ZY => 'Sendung zugestellt', // Item delivered
