@@ -16,8 +16,8 @@ class ParcelDetail
      * @param Carbon|null $deliveryDay
      * @param string|null $deliveryTimeFrameFrom
      * @param string|null $deliveryTimeFrameTo
-     * @param string|null $sapOrderNumber
-     * @param string|null $sapInvoiceNumber
+     * @param array|null $sapOrderNumber
+     * @param array|null $sapInvoiceNumber
      * @param Parcel[] $parcels
      */
     public function __construct(
@@ -30,8 +30,8 @@ class ParcelDetail
         public ?Carbon $deliveryDay = null,
         public ?string $deliveryTimeFrameFrom = null,
         public ?string $deliveryTimeFrameTo = null,
-        public ?string $sapOrderNumber = null,
-        public ?string $sapInvoiceNumber = null,
+        public ?array $sapOrderNumber = null,
+        public ?array $sapInvoiceNumber = null,
         public array $parcels = [],
     ){}
 
