@@ -66,19 +66,19 @@ class Tracking
 
                     $reasonCode =  ReasonCode::tryFrom($event->ParcelEventReasonCode);
                     if(!$reasonCode) {
-                        Log::error('Unknown reasonCode ' . $event->ParcelEventReasonCode);
+                        Log::error('Laravel PostAT: Unknown reasonCode ' . $event->ParcelEventReasonCode . ' for ' . $trackingNumber);
                         continue;
                     }
 
                     $eventTypeCode = EventTypeCode::tryFrom($event->ParcelEventTypeCode);
                     if(!$eventTypeCode) {
-                        Log::error('Unknown eventTypeCode ' . $event->ParcelEventTypeCode);
+                        Log::error('Laravel PostAT: Unknown eventTypeCode ' . $event->ParcelEventTypeCode . ' for ' . $trackingNumber);
                         continue;
                     }
 
                     $trackingState = TrackingState::tryFrom($event->TrackingState);
                     if(!$trackingState) {
-                        Log::error('Unknown trackingState ' . $event->TrackingState);
+                        Log::error('Laravel PostAT: Unknown trackingState ' . $event->TrackingState . ' for ' . $trackingNumber);
                         continue;
                     }
 
