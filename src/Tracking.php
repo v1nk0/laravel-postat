@@ -5,6 +5,7 @@ namespace V1nk0\LaravelPostat;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use V1nk0\LaravelPostat\Entities\IconDescription;
 use V1nk0\LaravelPostat\Entities\Parcel;
 use V1nk0\LaravelPostat\Entities\ParcelDetail;
@@ -62,11 +63,30 @@ class Tracking
                 $events = [];
 
                 foreach($parcel->ParcelEvents as $event) {
+
+                    $reasonCode =  ReasonCode::tryFrom($event->ParcelEventReasonCode);
+                    if(!$reasonCode) {
+                        Log::error('Unknown reasonCode ' . $event->ParcelEventReasonCode);
+                        continue;
+                    }
+
+                    $eventTypeCode = EventTypeCode::tryFrom($event->ParcelEventTypeCode);
+                    if(!$eventTypeCode) {
+                        Log::error('Unknown eventTypeCode ' . $event->ParcelEventTypeCode);
+                        continue;
+                    }
+
+                    $trackingState = TrackingState::tryFrom($event->TrackingState);
+                    if(!$trackingState) {
+                        Log::error('Unknown trackingState ' . $event->TrackingState);
+                        continue;
+                    }
+
                     $events[] = new ParcelEvent(
                         Carbon::parse($event->EventTimestamp),
-                        ReasonCode::tryFrom($event->ParcelEventReasonCode),
-                        EventTypeCode::tryFrom($event->ParcelEventTypeCode),
-                        TrackingState::tryFrom($event->TrackingState),
+                        $reasonCode,
+                        $eventTypeCode,
+                        $trackingState,
                         $event->EventCountry ?? null,
                         $event->EventLocation ?? null,
                         $event->EventPostalCode ?? null,
