@@ -150,6 +150,7 @@ enum ReasonCode: string
     case NN = 'NN';
     case NR = 'NR';
     case NS = 'NS';
+    case NV = 'NV';
     case NZ = 'NZ';
     case OB = 'OB';
     case OC = 'OC';
@@ -336,6 +337,7 @@ enum ReasonCode: string
             self::NN => 'Nachnahmebetrag unklar', // COD amount missing
             self::NR => 'Verzögerung durch fehlende Nachnahmedaten', // Delay due to missing COD data
             self::NS => 'Verzögerung - nicht systemkonform', // Delay due to incorrect information
+            self::NV => 'Verzögerung - Verpackung ausgebessert', // Delay due to repair of damaged package
             self::NZ, self::OC => 'Sendung wird nochmals zugestellt', // Item will be delivered again
             self::PB => 'e-Benachrichtigung versendet (Erinnerung)', // Pre notification sent (reminder)
             self::PD => 'Zweite Benachrichtigung zugestellt', // Second pre notification delivered
