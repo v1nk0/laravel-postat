@@ -24,15 +24,15 @@ class Plc
 
     protected Environment $environment;
 
-    public function __construct()
+    public function __construct(?int $clientId = null, ?string $orgUnitGuid = null, ?int $orgUnitId = null, ?string $env = null)
     {
         $this->credentials = new Credentials(
-            config('services.postat.plc.client_id'),
-            config('services.postat.plc.org_unit_guid'),
-            config('services.postat.plc.org_unit_id')
+            clientId: $clientId ?? config('services.postat.plc.client_id'),
+            orgUnitGuid: $orgUnitGuid ?? config('services.postat.plc.org_unit_guid'),
+            orgUnitId: $orgUnitId ?? config('services.postat.plc.org_unit_id')
         );
 
-        $this->environment = $environment ?? Environment::tryFrom(config('services.postat.plc.env'));
+        $this->environment = $environment ?? Environment::tryFrom($env ?? config('services.postat.plc.env'));
     }
 
     /**
