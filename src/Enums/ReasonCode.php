@@ -26,6 +26,7 @@ enum ReasonCode: string
     case AT = 'AT';
     case AU = 'AU';
     case AV = 'AV';
+    case AVS = 'AVS';
     case AW = 'AW';
     case AX = 'AX';
     case BC = 'BC';
@@ -255,6 +256,7 @@ enum ReasonCode: string
             self::AT, self::ON, self::OT, self::ZO => 'Sendung in Zustellung', // Item is out for delivery
             self::AU => 'Retour - Empfängeradresse ungenügend', // Item returned to sender - address incomplete
             self::AV => 'Annahme verweigert', // Item refused
+            self::AVS => 'Elektronische Auftragsdaten wurden vom Versender storniert', // Electronic shipment data was cancelled by the sender
             self::AW => 'Annahme verweigert - Ansprechpartner fehlt', // Item refused, contact person missing
             self::AX => 'Annahme verweigert - nicht bestellt', // Item refused, shipment not ordered
             self::BC => 'Anschriftsproblem', // Address incorrect / incomplete
