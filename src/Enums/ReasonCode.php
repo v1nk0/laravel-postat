@@ -196,6 +196,7 @@ enum ReasonCode: string
     case TV = 'TV';
     case UB = 'UB';
     case UFR = 'UFR';
+    case UL = 'UL';
     case UML = 'UML';
     case UPB = 'UPB';
     case UR = 'UR';
@@ -298,7 +299,7 @@ enum ReasonCode: string
             self::EAW => 'Sendung in Abholstation eingelangt', // Item arrived at Pick-Up Station
             self::EBE => 'e-Benachrichtigung versendet', // e-Notification sent
             self::EDA, self::EXD => 'Verzögerung – Sendung in Klärung', // Delay - Clarification
-            self::EI => 'Sendung in Post-Geschäftsstelle eingelangt', // Item arrived at postal service point
+            self::EI, self::UL => 'Sendung in Post-Geschäftsstelle eingelangt', // Item arrived at postal service point
             self::EL, self::ELE => 'Lagereingang - Zollanmeldungshindernis', // Item in warehouse - obstacle to customs declaration
             self::ER, self::EV, self::RS, self::NBS, self::RE, self::RED => 'Retour - Sendung konnte nicht zugestellt werden', // Item could not be delivered - return
             self::EU => 'Empfänger unbekannt/verzogen', // Consignee unknown/has moved
