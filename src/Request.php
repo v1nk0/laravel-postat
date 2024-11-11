@@ -32,7 +32,7 @@ abstract class Request implements RequestContract
     public function submit(): Response
     {
         $xml = $this->assembleXml($this->getBody());
-
+        
         try {
             $response = Http::withBody($xml, 'text/xml')
                 ->withoutVerifying()

@@ -22,6 +22,7 @@ class ShipmentRow extends Data
      * @param string|null $senderReference1
      * @param string|null $senderReference2
      * @param string|null $deliveryInstructions
+     * @param FeatureRow $features
      */
     public function __construct(
         public Product $product,
@@ -37,7 +38,7 @@ class ShipmentRow extends Data
         public ?string $senderReference1 = null,
         public ?string $senderReference2 = null,
         public ?string $deliveryInstructions = null,
-
+        public array $features = [],
     ){}
 
     public function toXml(): string
@@ -71,6 +72,16 @@ class ShipmentRow extends Data
         }
 
         $xml .= '<post:DeliveryServiceThirdPartyID>'.$this->product->id().'</post:DeliveryServiceThirdPartyID>' . "\r\n";
+
+        if(count($this->features) > 0) {
+            $xml .= '<post:FeatureList>' . "\r\n";
+                foreach($this->features as $feature) {
+                    $xml .= '   <post:AdditionalInformationRow>' . "\r\n";
+                    $xml .= '       '.$feature->toXml() . "\r\n";
+                    $xml .= '   </post:AdditionalInformationRow>' . "\r\n";
+                }
+            $xml .= '</post:FeatureList>' . "\r\n";
+        }
 
         if($this->number) {
             $xml .= '<post:Number>'.$this->number.'</post:Number>' . "\r\n";
