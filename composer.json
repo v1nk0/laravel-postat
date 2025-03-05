@@ -1,7 +1,7 @@
 {
     "name": "v1nk0/laravel-postat",
     "description": "",
-    "version": "1.0.17",
+    "version": "1.0.18",
     "authors": [
         {
             "name": "Vincent Sebastiaan Kooijman",
@@ -24,7 +24,7 @@
         "spatie/laravel-data": "^3.0"
     },
     "require-dev": {
-        "laravel/framework": "^9|^10"
+        "laravel/framework": "^9|^10|^11|^12"
     },
     "extra": {
         "laravel": {
